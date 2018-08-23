@@ -1,0 +1,40 @@
+[submodule "delimitMate"]
+    path = .vim/pack/my-plugins/start/delimitMate
+    url = https://github.com/Raimondi/delimitMate.git
+
+[submodule "lightline"]
+    path = .vim/pack/my-plugins/start/ligthline.vim
+    url = https://https://github.com/itchyny/lightline.vim.git
+
+[submodule "nerdcommenter"]
+    path = .vim/pack/my-plugins/start/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
+
+[submodule "nerdtree"]
+    path = .vim/pack/my-plugins/start/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
+
+[submodule "vim-cpp-enhanced-highlight"]
+    path = .vim/pack/my-plugins/start/vim-cpp-enhanced-highlight
+    url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+
+[submodule "vim-multiple-cursors"]
+    path = .vim/pack/my-plugins/start/vim-multiple-cursors
+    url = https://github.com/terryma/vim-multiple-cursors.git
+
+[submodule "vim-python-pep8-indent"]
+    path = .vim/pack/my-plugins/start/vim-python-pep8-indent
+    url = https://github.com/Vimjas/vim-python-pep8-indent.git
+
+[submodule "vim-signature"]
+    path = .vim/pack/my-plugins/start/vim-signature
+    url = https://github.com/kshenoy/vim-signature.git
+
+[submodule "YankRing.vim"]
+    path = .vim/pack/my-plugins/start/YankRing.vim
+    url = https://github.com/vim-scripts/YankRing.vim.git
+
+[submodule "YouCompleteMe"]
+    path = .vim/pack/my-plugins/start/YouCompleteMe
+    url = https://github.com/Valloric/YouCompleteMe.git
+
