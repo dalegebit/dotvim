@@ -1,6 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
 "       Amir Salihefendic — @amix3k
+"       (Modified by dalegebit)
 "
 " Awesome_version:
 "       Get this config, nice color schemes and lots of plugins!
@@ -228,6 +229,11 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Move to end of line
+inoremap <C-a> <esc>^i
+" Move to begin of line
+inoremap <C-e> <esc>A
+
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
@@ -381,19 +387,13 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/pack/my-plugins/start/YouCompleteMe/th
 let g:ycm_server_python_interpreter='/usr/bin/python'
 
 
-" (2) DelimitMate
-"""""
-" DelimitMate indent between closing parentheses
-let delimitMate_expand_cr=1
-
-
-" (3) YankRing
+" (2) YankRing
 """""
 " Set YankRing history directory
 let yankring_history_dir='~/.yankring'
 
 
-" (4) NERDCommenter
+" (3) NERDCommenter
 """""
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -414,44 +414,20 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 
+" (4) DelimitMate
+"""""
+" Enable autoindent between closing braces
+let g:delimitMate_expand_cr = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Marks
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Close autoindent when editing python
+" au Filetype python let g:delimitMate_expand_cr = 0
 
-" Remove mark on the current line
-" nnoremap dm :<C-u>call Delmarks()<cr>
+" Enable the expansion of space
+" let g:delimitMate_expand_space = 1
 
-" Change the color of the sigh column
-highlight SignColumn ctermbg=None
-" highlight SignatureMarkText ctermfg=46
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open YCM tags engine
-let g:ycm_collect_identifiers_from_tags_files=1
-
-" Complete start from the second char
-let g:ycm_min_num_of_chars_for_completion=2
-
-" Close .ycm_extra_conf.py warning
-let g:ycm_confirm_extra_conf=0
-
-" Set global .ycm_extra_conf.py
-let g:ycm_global_ycm_extra_conf = '~/.vim/pack/my-plugins/start/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
-
-" Set python interpreter
-let g:ycm_server_python_interpreter='/usr/bin/python'
-
-" Include stdlib
-" set tags+=/
-
-
-" DelimitMate autoindent between closing parenthese
-let delimitMate_expand_cr=1
+" Enable jumping over <CR> and <Space> expansions when
+" inserting closing matchpairs.
+" let delimitMate_jump_expansion = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -516,3 +492,18 @@ function! Delmarks()
         exe 'delmarks' l:m
     endif
 endfunction
+
+" Search next open or close pair
+func! s:FormatChunk(open, close)
+  let open = s:RegexpQuote(a:open)
+  let close = s:RegexpQuote(a:close)
+  let open2 = s:RegexpQuoteInSquare(a:open)
+  let close2 = s:RegexpQuoteInSquare(a:close)
+  if open == close
+    return '\v'.open.s:string_chunk.close
+  else
+    return '\v%(' . s:ss_pattern . '|' . s:ds_pattern . '|' . '[^'.open2.close2.']|[\r\n]' . '){-}(['.open2.close2.'])'
+  end
+endf
+
+
