@@ -22,6 +22,8 @@
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
 "    -> Misc
+"    -> Marks
+"    -> Package config
 "    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,6 +80,9 @@ endif
 
 "Always show current position
 set ruler
+
+" Highlight current line
+set cursorline
 
 " Height of the command bar
 set cmdheight=2
@@ -143,13 +148,15 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme PaperColor
 catch
 endtry
 
 set background=dark
 
+" Set line number scheme
 highlight LineNr ctermfg=DarkGrey
+
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -169,7 +176,7 @@ set ffs=unix,dos,mac
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
-" set nobackup
+set nobackup
 set nowb
 set noswapfile
 
@@ -244,7 +251,7 @@ nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Change tab line backgroud color
-highlight TabLineFill ctermfg=238
+" highlight TabLineFill ctermfg=238
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -324,18 +331,6 @@ map <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Marks
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Remove mark on the current line
-" nnoremap dm :<C-u>call Delmarks()<cr>
-
-" Change the color of the sigh column
-highlight SignColumn ctermbg=None
-highlight SignatureMarkText ctermfg=46
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
@@ -349,6 +344,114 @@ map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Marks
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Remove mark on the current line
+" nnoremap dm :<C-u>call Delmarks()<cr>
+
+" Change the color of the sigh column
+highlight SignColumn ctermbg=None
+" highlight SignatureMarkText ctermfg=46
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Packages config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" (1) YCM
+"""""
+" Open YCM tags engine
+let g:ycm_collect_identifiers_from_tags_files=1
+
+" Complete start from the second char
+let g:ycm_min_num_of_chars_for_completion=2
+
+" Close .ycm_extra_conf.py warning
+let g:ycm_confirm_extra_conf=0
+
+" Set global .ycm_extra_conf.py
+let g:ycm_global_ycm_extra_conf = '~/.vim/pack/my-plugins/start/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+
+" Set python interpreter
+let g:ycm_server_python_interpreter='/usr/bin/python'
+
+
+" (2) DelimitMate
+"""""
+" DelimitMate indent between closing parentheses
+let delimitMate_expand_cr=1
+
+
+" (3) YankRing
+"""""
+" Set YankRing history directory
+let yankring_history_dir='~/.yankring'
+
+
+" (4) NERDCommenter
+"""""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Marks
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Remove mark on the current line
+" nnoremap dm :<C-u>call Delmarks()<cr>
+
+" Change the color of the sigh column
+highlight SignColumn ctermbg=None
+" highlight SignatureMarkText ctermfg=46
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open YCM tags engine
+let g:ycm_collect_identifiers_from_tags_files=1
+
+" Complete start from the second char
+let g:ycm_min_num_of_chars_for_completion=2
+
+" Close .ycm_extra_conf.py warning
+let g:ycm_confirm_extra_conf=0
+
+" Set global .ycm_extra_conf.py
+let g:ycm_global_ycm_extra_conf = '~/.vim/pack/my-plugins/start/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+
+" Set python interpreter
+let g:ycm_server_python_interpreter='/usr/bin/python'
+
+" Include stdlib
+" set tags+=/
+
+
+" DelimitMate autoindent between closing parenthese
+let delimitMate_expand_cr=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
