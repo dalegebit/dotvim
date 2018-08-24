@@ -7,8 +7,8 @@
     url = https://github.com/Raimondi/delimitMate.git
 
 [submodule "lightline"]
-    path = .vim/pack/my-plugins/start/ligthline.vim
-    url = https://https://github.com/itchyny/lightline.vim.git
+    path = .vim/pack/my-plugins/start/lightline.vim
+    url = https://github.com/itchyny/lightline.vim.git
 
 [submodule "nerdcommenter"]
     path = .vim/pack/my-plugins/start/nerdcommenter
