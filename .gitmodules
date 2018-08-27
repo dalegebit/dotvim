@@ -22,6 +22,10 @@
     path = .vim/pack/my-plugins/start/vim-cpp-enhanced-highlight
     url = https://github.com/octol/vim-cpp-enhanced-highlight.git
 
+[submodule "vim-easymotion"]
+    path = .vim/pack/my-plugins/start/vim-easymotion
+    url = https://github.com/easymotion/vim-easymotion.git
+
 [submodule "vim-multiple-cursors"]
     path = .vim/pack/my-plugins/start/vim-multiple-cursors
     url = https://github.com/terryma/vim-multiple-cursors.git
