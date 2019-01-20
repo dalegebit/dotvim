@@ -217,8 +217,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+" map <space> /
+" map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -306,9 +306,6 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" NERDTree
-nmap <C-\> :NERDTreeToggle<CR>
-
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
@@ -392,6 +389,8 @@ let g:ycm_server_python_interpreter='/usr/bin/python'
 " Set YankRing history directory
 let yankring_history_dir='~/.yankring'
 
+" Shortcut to YankShow
+nnoremap <silent> <F11> :YRShow<CR>
 
 " (3) NERDCommenter
 """""
@@ -429,7 +428,13 @@ let g:delimitMate_expand_cr = 1
 " inserting closing matchpairs.
 " let delimitMate_jump_expansion = 1
 
+" (5) NERDTree
+"""""
+nnoremap = :NERDTreeToggle<CR>
 
+" (6) Cscope
+"""""
+source ~/.vim/scripts/cscope_maps.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
