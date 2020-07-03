@@ -26,6 +26,7 @@
 "    -> Marks
 "    -> Package config
 "    -> Helper functions
+"    -> NeoVim Stuff
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -249,7 +250,15 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>t<leader> :tabnext
+map <leader>t1 1gt
+map <leader>t2 2gt
+map <leader>t3 3gt
+map <leader>t4 4gt
+map <leader>t5 5gt
+map <leader>t6 6gt
+map <leader>t7 7gt
+map <leader>t8 8gt
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -415,8 +424,11 @@ let g:NERDToggleCheckAllLines = 1
 
 " (4) DelimitMate
 """""
-" Enable autoindent between closing braces
-let g:delimitMate_expand_cr = 1
+" Close autoindent between closing braces
+" let g:delimitMate_expand_cr = 0
+
+" Enable autoindent when editing c++
+" au Filetype c++ let g:delimitMate_expand_cr = 1
 
 " Close autoindent when editing python
 " au Filetype python let g:delimitMate_expand_cr = 0
@@ -511,4 +523,9 @@ func! s:FormatChunk(open, close)
   end
 endf
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NeoVim Stuff
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('nvim')
+    set clipboard+=unnamedplus
+endif
