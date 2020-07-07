@@ -2,9 +2,13 @@
     path = vim/pack/my-plugins/start/ale
     url = https://github.com/w0rp/ale.git
 
-[submodule "delimitMate"]
-    path = vim/pack/my-plugins/start/delimitMate
-    url = https://github.com/Raimondi/delimitMate.git
+; [submodule "delimitMate"]
+    ; path = vim/pack/my-plugins/start/delimitMate
+    ; url = https://github.com/Raimondi/delimitMate.git
+
+[submodule "pear-tree"]
+    path = vim/pack/my-plugins/start/pear-tree
+    url = https://github.com/tmsvg/pear-tree.git
 
 [submodule "lightline"]
     path = vim/pack/my-plugins/start/lightline.vim
